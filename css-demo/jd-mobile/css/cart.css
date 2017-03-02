@@ -1,0 +1,182 @@
+.top-ban{
+    position: static;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+}
+.cart .safe-tip{
+    height: 34px;
+    background-color: #fff;
+    width: 100%;
+    line-height: 34px;
+    text-align: center;
+    font-size: 13px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    color: #686868;
+    position: relative;
+    margin-bottom:10px;
+}
+.cart .safe-tip p{
+
+}
+.cart .safe-tip p::before{
+    content: '';
+    display: block;
+    width: 18px;
+    height: 18px;
+    background: url("../images/safe_icon.png") no-repeat;
+    background-size: 18px 18px;
+    position: absolute;
+    top:8px;
+    left:85px;
+}
+/*购物车主体部分*/
+.shop{
+    margin-bottom: 10px;
+}
+.shop-name{
+    width: 100%;
+    height: 35px;
+    background-color: #fff;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    position: relative;
+}
+.shop-check{
+    width: 40px;
+    height: 35px;
+    float: left;
+
+}
+ .shop-check .jd-checkbox{
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url("../images/shop-icon.png") no-repeat 0 0;
+    background-size: 50px 100px;
+    margin:8px 0 0 10px;
+    float: left;
+}
+ .shop-check .jd-checkbox[checked]{
+    background-position: -25px 0;
+}
+.shop-name .shop-title{
+    height: 35px;
+    width: 100%;
+    margin-left: 40px;
+}
+.shop-name .shop-title img{
+    display: block;
+    width: 15px;
+    height: 13px;
+    line-height: 35px;
+    margin-top: 11px;
+    float:left;
+}
+.shop-name .shop-title span{
+    display: block;
+    height: 35px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 35px;
+}
+.shop-name .shop-title .name{
+    float: left;
+    color:#444;
+    margin-left: 4px;
+}
+.shop-name .shop-title .tip{
+    float:right;
+    padding-right: 45px;
+    color: #d8505c;
+}
+ .shop-content{
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+    border-bottom: 1px solid #e0e0e0;
+}
+ .shop-content .product-check{
+    width: 40px;
+    float: left;
+    padding-top: 9px;
+}
+ .shop-content .product-img{
+    display: block;
+    width: 78px;
+    height: 78px;
+    float:left;
+    padding-top: 10px;
+}
+ .shop-content .product-img img{
+    display: block;
+    width: 100%;
+}
+ .shop-content .product-detail .product-name{
+    display: block;
+    overflow: hidden;
+    height:40px;
+    line-height: 15px;
+    font-size: 13px;
+    padding: 10px 10px 0 10px;
+}
+ .shop-content .product-detail .product-price{
+    font-size: 13px;
+    color:#686868;
+    padding-left: 128px;
+    margin-top: 3px;
+}
+ .shop-content .product-detail .product-operate {
+    margin-top: 5px;
+ }
+ .shop-content .product-detail .product-operate .num-change span{
+    display: block;
+    width: 32px;
+    height: 24px;
+    float:left;
+    font-size: 16px;
+    text-align: center;
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+ .shop-content .product-detail .product-operate .num-change .min{
+    border: 1px solid #e0e0e0;
+    border-radius: 3px 0 0 3px;
+    margin-left: 10px;
+}
+ .shop-content .product-detail .product-operate .num-change .num{
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+}
+ .shop-content .product-detail .product-operate .num-change .max{
+    border: 1px solid #e0e0e0;
+    border-radius:  0 3px 3px 0;
+}
+ .shop-content .product-detail .product-operate .product-del{
+
+}
+.shop-content .product-detail .product-operate .product-del .del-top{
+
+    display: block;
+    width: 20px;
+    height: 5px;
+    background: url("../images/delete_up.png") no-repeat;
+    background-size: 20px 5px;
+    position: absolute;
+    right:15px;
+    top:64px;
+}
+ .shop-content .product-detail .product-operate .product-del .del-bot{
+
+    display: block;
+    width: 18px;
+    height: 18px;
+    background: url("../images/delete_down.png") no-repeat;
+    background-size: 18px 18px;
+    position: absolute;
+    right:16px;
+    top:66px;
+}

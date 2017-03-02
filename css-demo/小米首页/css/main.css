@@ -1,0 +1,356 @@
+/*ÕâÊÇÐ¡Ã×Ö÷Ò³²¿·ÖµÄÖ÷Òª²¿·ÖÑùÊ½*/
+
+/*ÂÖ²¥Í¼ºÍÌØÊâÉÌÆ·Õ¹Ê¾*/
+#home_star  .star{
+    height: 460px;
+    position: relative;
+}
+#home_star .image-box{
+    height: 460px;
+}
+#home_star .left-control,#home_star .right-control{
+    display: block;
+    width: 41px;
+    height: 69px;
+    line-height: 69px;
+    background-color: transparent;
+    font-size: 40px;
+    color: #bbb;
+    position: absolute;
+    top:50%;
+    margin-top: -35px;
+}
+#home_star .iconfont{
+    font-size: 40px;
+}
+#home_star .left-control:hover,#home_star .right-control:hover{
+    background-color: #000;
+    color:#fff;
+    cursor: pointer;
+}
+#home_star .left-control{
+    left:234px;
+}
+#home_star .right-control{
+    right:10px;
+}
+#home_star .slider-control{
+    width: 400px;
+    height: 18px;
+    line-height: 18px;
+    position: absolute;
+    bottom:20px;
+    right:30px;
+    background-color: transparent;
+}
+#home_star .slider-control .normal-control{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: 2px solid #888;
+    float:right;
+    margin-right: 10px;
+    background-color: #333;
+}
+#home_star .slider-control .normal-control:hover{
+    background-color: #bbb;
+    background-color: #fff;
+    cursor: pointer;
+}
+#home_star .star-goods{
+    overflow: hidden;
+    margin-top: 20px;
+}
+#home_star .star-goods .life-service{
+    width: 214px;
+    float:left;
+    background-color: #555;
+    padding: 10px;
+}
+#home_star .service-list li{
+    width: 70px;
+    height: 75px;
+    float:left;
+}
+#home_star .service-list .center{
+    border-left: 1px dashed #666;
+    border-right: 1px dashed #666;
+}
+#home_star .service-list .bottom{
+    border-top: 1px dashed #666;
+}
+#home_star .service-list li a{
+    display: block;
+    padding-top: 18px;
+    overflow: hidden;
+    color:#bbb;
+    font-size: 14px;
+    text-align: center;
+    margin-right: 1px;
+}
+#home_star .service-list li a:hover{
+    color:#fff;
+}
+#home_star .service-list .iconfont{
+    font-size: 18px;
+}
+#home_star .xiaomi-ad li{
+    float: left;
+    margin-left: 14px;
+}
+#home_star .xiaomi-ad li a{
+    display: block;
+}
+#home_star .xiaomi-ad li img{
+    width: 316px;
+    height: 170px;
+}
+#home_star .fstar-goods{
+    margin-top: 30px;
+}
+#home_star .fstar-goods .box-title{
+    position: relative;
+}
+#home_star .fstar-goods .title{
+    line-height: 58px;
+    font-size: 24px;
+    color:#222;
+}
+#home_star .fstar-goods .more{
+    width: 76px;
+    position: absolute;
+    right:0;
+    bottom: 10px;
+}
+#home_star .fstar-goods .more .left{
+    width: 36px;
+    float:left;
+    border:1px solid #eee;
+
+}
+#home_star .fstar-goods .more .right{
+    width: 36px;
+    float:right;
+    border:1px solid #eee;
+}
+#home_star .fstar-goods .more  .act{
+    color:#888;
+}
+#home_star .fstar-goods .more  .act:hover{
+    color:#ff6700;
+}
+#home_star .fstar-goods .more .sleep{
+    color:#eee;
+}
+#home_star .fstar-goods .more .iconfont{
+    display: inline-block;
+    width: 36px;
+    line-height: 24px;
+    text-align: center;
+    font-size:20px;
+}
+
+#home_star .box-hd{
+   overflow:hidden ;
+}
+#home_star .box-hd ul{
+    width: 200%;
+}
+#home_star .box-hd li{
+    width: 234px;
+    height: 340px;
+    float:left;
+    background-color: #eee;
+    margin-right:14px;
+}
+#home_star .box-hd li.last{
+    margin-right:0;
+}
+#home_star .box-hd img{
+    width: 160px;
+    height: 160px;
+    margin-left: 37px;
+    margin-top:40px;
+}
+#home_star .box-hd .title{
+    text-align:center;
+    height: 45px;
+}
+#home_star .box-hd .title a{
+    color:#111;
+    font-size:14px;
+}
+#home_star .box-hd .desc{
+    text-align: center;
+    font-size: 12px;
+    color:#666;
+}
+#home_star .box-hd .price{
+    color:#ff6700;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 14px;
+}
+
+/*Ò³ÃæÖ÷Ìå²¿·ÖcssÑùÊ½*/
+#home_main{
+    background-color: #f5f5f5;
+    padding-top: 30px;
+    margin-top: 30px;
+}
+#home_main .box-hd{
+    height: 58px;
+    position: relative;
+}
+ #home_main .box-hd .box-title{
+    height: 58px;
+    line-height: 58px;
+    color:#222;
+    font-size: 23px;
+    margin-top: 20px;
+}
+#home_main .box-hd  .more{
+    position: absolute;
+    right:0;
+    bottom: 15px;
+}
+#home_main .box-hd  .more a{
+    display: block;
+    font-size: 18px;
+    color:#616161;
+}
+#home_main .box-hd  .more a .iconfont{
+    margin-left:6px;
+    display: inline-block;
+    font-size: 14px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #c0c0c0;
+    text-align: center;
+    line-height: 18px;
+}
+#home_main .box-content{
+    position: relative;
+}
+#home_main .box-content .content-left{
+    width: 234px;
+    height: 614px;
+}
+#home_main .box-content .content-right{
+    position: absolute;
+    right: 0;
+    top:0;
+    margin-right: -13px;
+}
+#home_main .box-content .content-right li{
+    width: 234px;
+    height: 300px;
+    float:right;
+    background-color: #fff;
+    margin-right:14px;
+}
+#home_main .box-content .content-right .bottom{
+    margin-top: 13px;
+}
+#home_main .box-content .content-right img{
+    width: 160px;
+    height: 160px;
+    margin-left: 37px;
+    margin-top:40px;
+}
+#home_main .box-content .content-right .title{
+    text-align:center;
+    height: 35px;
+}
+#home_main .box-content .content-right .title a{
+    color:#111;
+    font-size:14px;
+}
+#home_main .box-content .content-right .desc{
+    text-align: center;
+    font-size: 12px;
+    color:#666;
+}
+#home_main .box-content .content-right .price{
+    color:#ff6700;
+    text-align: center;
+    padding-top: 14px;
+    font-size: 14px;
+}
+#home_main .box-hd .more-goods{
+    height: 42px;
+    position:absolute;
+    top:8px;
+    right:0; 
+}
+#home_main .box-hd .more-goods li{
+    height: 26px;
+    line-height: 26px;
+    margin:10px 20px 0 0;
+    float:left;
+}
+#home_main .box-hd .more-goods li a{
+    height: 26px;
+    color:#666;
+}
+#home_main .box-hd .more-goods li a.current{
+    color:#ff6700;
+    border-bottom: 2px solid #ff6700; 
+}
+#home_main .box-content .content-left .content-left-top{
+    width: 234px;
+    height: 300px;
+}
+#home_main .box-content .content-left .content-left-bottom{
+    width: 234px;
+    height: 300px;
+    margin-top: 13px;
+}
+#home_main .box-content .content-left .content-left-top img,#home_main .box-content .content-left .content-left-bottom img{
+    width: 234px;
+    height: 300px;
+}
+#home_main .box-content .content-right li.last{
+    background-color: #f5f5f5;
+}
+#home_main .content-right .last .top-content{
+    width: 234px;
+    height: 143px;
+    position: relative;
+    background-color:#fff;
+}
+#home_main .content-right .last .bottom-content{
+    width: 234px;
+    height: 143px;
+    position: relative;
+    background-color:#fff;
+    margin-top: 14px;
+}
+#home_main .content-right .last  .title{
+    position: absolute;
+    top:30px;
+    left:25px;
+}
+#home_main .content-right .last .title a{
+    font-size: 14px;
+    color:#111;
+}
+#home_main .content-right .last  .price{
+    color:#ff6700;
+    font-size: 12px;
+    display: inline-block;
+    position: absolute;
+    top:50px;
+    left:25px;
+}
+#home_main .content-right .last img{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    right:14px;
+    top:-10px;
+}
+#home_main .arrounds{
+    padding-bottom: 40px;
+}

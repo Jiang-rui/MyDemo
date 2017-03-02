@@ -1,0 +1,27 @@
+/*这是一些默认的css样式*/
+
+html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input, textarea, th, td,
+select{margin:0;padding: 0}
+ul,ol{list-style: none}
+h1, h2, h3, h4, h5, h6{ font-weight:normal;}
+img{border:none;vertical-align: middle}
+a{text-decoration: none}
+input,textarea{outline:none;border:none}
+i{font-style: normal}
+.clearfix{zoom:1}
+.clearfix::before{
+    content: " ";
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    display: block;
+    clear:both;
+    overflow: hidden;
+}
+.fl{float:left;}
+.fr{float:right;}
+.container{
+    width: 1226px;
+    margin:0 auto;
+}
+
