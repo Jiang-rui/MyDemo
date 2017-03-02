@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        .box1{
+            height: 200px;
+            background: rgba(255,255,255,.2);
+            text-align: center;
+            line-height: 200px;
+        }
+        .box1 img{
+            width: 150px;
+            height:100px;
+            padding-top:80px;
+            cursor: pointer;
+        }
+        body{
+            background: url("images/1.jpg") top center no-repeat;
+            background-size: 1300px 2000px;
+        }
+    </style>
+    <script>
+        window.onload=function ()
+        {
+            var pic1=document.getElementById("pic1");
+            var pic2=document.getElementById("pic2");
+            var pic3=document.getElementById("pic3");
+            pic1.onclick=function () {
+                document.body.style.backgroundImage="url('images/1.jpg')";
+            }
+            pic2.onclick=function () {
+                document.body.style.backgroundImage="url('images/2.jpg')";
+            }
+            pic3.onclick=function () {
+                document.body.style.backgroundImage="url('images/3.jpg')";
+            }
+        }
+    </script>
+</head>
+<body>
+      <div class="box1">
+          <img src="images/1.jpg" alt="" id="pic1">
+          <img src="images/2.jpg" alt="" id="pic2">
+          <img src="images/3.jpg" alt="" id="pic3">
+      </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证表单</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    .box{
+        margin:100px auto;
+    }
+    .box .wrong{
+
+        width: 100px;
+        height: 20px;
+        font:400 15px/20px "宋体";
+        background-color: red;
+    }
+   .box .right{
+
+        width: 100px;
+        height: 20px;
+        font:400 15px/20px "宋体";
+        background-color: green;
+    }
+    .box input{
+        width: 200px;
+        height: 20px;
+        font:400 15px/20px "宋体";
+        outline-style: none;
+    }
+</style>
+<script>
+    window.onload=function () {
+        function $(id){
+            var id1=document.getElementById(id);
+            return id1;
+        }
+        var txt=$("score");
+        var al=$("al");
+        txt.onmouseout=function() {
+            if (txt.value == "") {
+                al.className = "wrong";
+                al.innerHTML = "输入的内容不能为空";
+            }
+            else if (isNaN(txt.value)) {
+                al.className = "wrong";
+                al.innerHTML = "输入的格式不对";
+            }
+            else if (txt.value > 150 || txt.value < 0) {
+                al.className = "wrong";
+                al.innerHTML = "输入成绩超出范围";
+            }
+            else {
+                al.className = "right";
+                al.innerHTML = "输入正确";
+            }
+        }
+        txt.focus();
+        txt.onmouseover=function(){
+            txt.select();
+        }
+    }
+</script>
+<body>
+<div class="box">
+    语文成绩:<input type="text" id="score"/> <span  id="al">请输入成绩</span>
+</div>
+</body>
+</html>

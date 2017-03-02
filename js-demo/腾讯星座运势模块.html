@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        .box{
+            width: 280px;
+            height: 183px;
+            border:1px solid #d2e1f1;
+            margin:100px auto;
+        }
+        .top h2{
+            font: 700 14px/35px "sim song";
+            text-indent: 15px ;
+            color: #0873c0;
+        }
+        .mid{
+            width:210px;
+            height: 50px;
+            font-size: 12px;
+            padding-left: 70px;
+           margin-top: 10px;
+            position: relative;
+        }
+        .mid .pic{
+            position: absolute;
+            left:10px;
+            top:0;
+            height: 50px;
+            width: 50px;
+            background: url("images/starIcon.png") 0 0 no-repeat;
+        }
+        .mid .yunshi{
+            width:180px;
+            height: 18px;
+            margin-top: 6px;
+            position: relative;
+        }
+        .mid .yunshi i{
+            width:80px;
+            height: 13px;
+            position: absolute;
+            top:0;
+            left: 55px;
+        }
+        .mid .yunshi i.baise{
+            background: url("images/yunshi.png") left top no-repeat;
+        }
+        .mid .yunshi i.jinse{
+            width: 64px;
+            background: url("images/yunshi.png") left bottom no-repeat;
+        }
+        .bottom p{
+            font:400 14px/26px "sim song";
+            color: #323f5a;
+            margin:9px 15px;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+          function $(id) {return document.getElementById(id);}
+          var arr=[9,5,7,8,10,6,5];
+          var arrtxt=["白羊座内容","金牛座内容","双子座内容"]
+          var sel=$("star");
+          sel.onchange=function () {
+              var i=this.value;
+              $("ico").style.backgroundPosition="0 "+(-50*i)+"px";
+//              $("cha").style.width=""+(80-)+"px";
+              $("cha").style.width=arr[i]*8+"px";
+              $("neirong").innerHTML="<p>"+arrtxt[i]+"</p>";
+          }
+        }
+    </script>
+</head>
+<body>
+<div class="box">
+    <div class="top">
+        <h2>星座运势</h2>
+    </div>
+    <div class="mid">
+        <div class="pic" id="ico">
+            
+        </div>
+        <select name="" id="star">
+            <option value="0">白羊座（03.21-04.29）</option>
+            <option value="1">金牛座（04.20-05.20）</option>
+            <option value="2">双子座</option>
+            <option value="3">射手</option>
+            <option value="4"></option>
+            <option value="5"></option>
+            <option value="6"></option>
+        </select>
+        <div class="yunshi">
+            <p>今日运势：</p>
+            <i class="baise"></i>
+            <i class="jinse" id="cha"></i>
+        </div>
+    </div>
+    <div class="bottom" id="neirong">
+       <p>你感到不再摇摆不定，很多东西其实已经水到渠成，你内心的想法也逐渐明朗起来，信心提升。这样的...[详细]</p>
+    </div>
+</div>
+</body>
+</html>

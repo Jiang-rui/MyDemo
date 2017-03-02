@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin:0;padding: 0;}
+        ul,ol{list-style: none;}
+        img{vertical-align: top;}
+        .box{
+            width: 490px;
+            height: 170px;
+            margin:100px auto;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        ul{
+            width: 500%;
+            position: absolute;
+            top:0;
+            left:0;
+        }
+        .box li{
+            float: left;
+        }
+        .box .left{
+            width: 20px;
+            height: 50px;
+            font: 400 18px/50px "sim song";
+            color: #000;
+            text-align: center;
+            background: #fff;
+            opacity: 0.8;
+            z-index: 1;
+            position: absolute;
+            top:60px;
+            left:0;
+            display: none;
+        }
+        .box .right{
+            width: 20px;
+            height: 50px;
+            font: 400 18px/50px "sim song";
+            color: #000;
+            text-align: center;
+            background: #fff;
+            opacity: 0.8;
+            z-index: 1;
+            position: absolute;
+            top:60px;
+            right:0;
+            display: none;
+        }
+        .box .right:hover,.box .left:hover{
+            background: #666;
+            cursor: pointer;
+        }
+        .box .dian{
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+        }
+       .dian span{
+            display: block;
+            margin-right: 10px;
+            float: left;
+            width: 18px;
+            height:18px;
+            line-height: 18px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: #fff;
+            cursor: pointer;
+        }
+       .dian .current{
+            background-color: #f00;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <span class="left" id="leftspan"> < </span>
+    <span class="right"id="rightspan"> > </span>
+    <ul id="ul"></ul>
+    <div class="dian" id="dian">
+
+    </div>
+</div>
+</body>
+</html>
+<script>
+    function $(id) {return document.getElementById(id);}
+    var arrimg=["images/01.jpg","images/02.jpg","images/03.jpg","images/04.jpg","images/05.jpg"];
+    for(var i=0,imglen=arrimg.length;i<imglen;i++){
+        var newli=document.createElement("li");
+        var newimg=document.createElement("img");
+        newimg.setAttribute("src",arrimg[i]);
+        var newspan=document.createElement("span");
+        newspan.innerHTML=i+1;
+        newli.appendChild(newimg);
+        $("ul").appendChild(newli);
+        $("dian").appendChild(newspan);
+    }
+
+      var spans=$("dian").getElementsByTagName("span");
+      spans[0].setAttribute("class","current");
+
+      for(var i=0;i<imglen;i++){
+          spans[i].index=i;
+          spans[i].onmouseover=function () {
+              for(var j=0;j<imglen;j++){
+                  spans[j].removeAttribute("class");
+              }
+              this.setAttribute("class","current");
+//            ul.style.left=-490*this.index+"px";
+              target=-this.index*490;
+        }
+      }
+      $("leftspan").onclick=function () {
+          if(target>-(arrimg.length-1)*490){
+              target-=490;
+          }
+      }
+      $("rightspan").onclick=function () {
+          if(target<0){
+           target+=490;
+          }
+      }
+//      定时器写在触发器的外面，表示定时器是一时运行的，只要改变定时器的一个内容，那么，定时器就会运动起来
+//    这是本案例最经典的地方，一定要记住，定时器可以在浏览器打开的时候一时运行不关闭的，
+        var header=0;
+        var target=0;
+        setInterval(function () {
+            header=header+(target-header)/10;
+            ul.style.left=header+"px";
+        },30);
+//    左右的焦点
+       $("box").onmouseover=function () {
+           $("leftspan").style.display="block";
+           $("rightspan").style.display="block";
+       }
+       $("box").onmouseout=function () {
+        $("leftspan").style.display="none";
+        $("rightspan").style.display="none";
+       }
+
+</script>

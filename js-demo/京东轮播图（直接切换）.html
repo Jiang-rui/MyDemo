@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{margin:0;padding: 0;}
+    ul,ol{list-style: none;}
+    .box{
+        width: 730px;
+        height: 454px;
+        overflow: hidden;
+        margin:100px auto;
+        position: relative;
+    }
+    .box .circle{
+        position:absolute;
+        bottom:20px;
+        overflow: hidden;
+        left:50%;
+    }
+    .box .circle span{
+        display: block;
+        width:18px;
+        height: 18px;
+        float: left;
+        background-color: #333;
+        text-align: center;
+        font:400 16px/18px "sim song";
+        border-radius: 50%;
+        cursor: pointer;
+        margin-left: 10px;
+        color: #fff;
+    }
+    .box .circle span.current{
+        background-color:red ;
+    }
+
+</style>
+<!--<script>-->
+    <!--window.onload=function () {-->
+        <!--var imgarr=["images/11.jpg","images/22.jpg","images/33.jpg","images/44.jpg","images/55.jpg","images/66.jpg"];-->
+        <!--var imglen=imgarr.length;-->
+        <!--var ul=document.getElementById("ul");-->
+        <!--var circle=document.createElement("div");-->
+            <!--circle.setAttribute("class","circle");-->
+            <!--document.getElementById("box").appendChild(circle);-->
+            <!--circle.style.marginLeft="-"+(imglen*28)/2+"px";-->
+        <!--for(var i=0;i<imglen;i++){-->
+            <!--var newimg=document.createElement("img");-->
+            <!--newimg.setAttribute("src",imgarr[i]);-->
+            <!--newimg.style.display="none";-->
+            <!--var newli=document.createElement("li");-->
+            <!--newli.appendChild(newimg);-->
+            <!--var newspan=document.createElement("span");-->
+            <!--newspan.innerHTML=i+1;-->
+            <!--circle.appendChild(newspan);-->
+            <!--ul.appendChild(newli);-->
+        <!--}-->
+        <!--var spans=circle.getElementsByTagName("span");-->
+        <!--var imgs=ul.getElementsByTagName("img");-->
+        <!--imgs[0].style.display="block";-->
+        <!--spans[0].setAttribute("class","current");-->
+        <!--for(var i=0;i<imglen;i++){-->
+            <!--spans[i].index=i;   //记住了，要使用这种方法才能找得到元素，若是直接给i的话，谁知道你给的是哪个i，remember that-->
+            <!--spans[i].onmouseover=function () {-->
+                <!--for(var j=0;j<imglen;j++){-->
+                    <!--spans[j].removeAttribute("class");-->
+                    <!--imgs[j].style.display="none";-->
+                <!--}-->
+                <!--this.setAttribute("class","current") ;-->
+                <!--imgs[this.index].style.display="block";-->
+            <!--}-->
+        <!--}-->
+    <!--}-->
+<!--</script>-->
+<body>
+<div class="box" id="box">
+    <div class="slider">
+        <ul id="ul">
+
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>
+<script>
+    var images=["images/11.jpg","images/22.jpg","images/33.jpg","images/44.jpg","images/55.jpg","images/66.jpg"];
+    var imglen=images.length;
+    var ul=document.getElementById("ul");
+    var circle=document.createElement("div");
+    circle.setAttribute("class","circle");
+    document.getElementById("box").appendChild(circle);
+    circle.style.marginLeft="-"+(imglen*28)/2+"px";
+    for(var i=0;i<imglen;i++){
+        var newImg=document.createElement("img");
+        newImg.setAttribute("src",images[i]);
+        newImg.style.display="none";
+        var newli=document.createElement("li");
+        newli.appendChild(newImg);
+        ul.appendChild(newli);
+        var newSpan=document.createElement("span");
+        newSpan.innerText=i+1;
+        circle.appendChild(newSpan);
+    }
+    var imgs=ul.getElementsByTagName("img");
+    var spans=circle.getElementsByTagName("span");
+        imgs[0].style.display="block";
+        spans[0].setAttribute("class","current");
+        for(var i=0;i<imglen;i++){
+            spans[i].index=i;
+            spans[i].addEventListener("mouseover",function () {
+
+                for(var j=0;j<imglen;j++){
+                    imgs[j].style.display="none";
+                    spans[j].removeAttribute("class","current");
+                }
+                this.setAttribute("class","current");
+                imgs[this.index].style.display="block";
+            },false)
+        }
+</script>

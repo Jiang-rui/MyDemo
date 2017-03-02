@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin:0;padding: 0}
+        .box{
+            width: 1800px;
+            height: 460px;
+            margin:100px auto;
+            overflow: hidden;
+        }
+        ul,ol{list-style:none}
+        .box li{
+            height:460px;
+            overflow: hidden;
+            float: left;
+        }
+        .box ul{
+            width:1900px;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box1">
+     <ul id="box">
+
+     </ul>
+</div>
+</body>
+</html>
+<script>
+    var imgarr=["images/1.jpg","images/2.jpg","images/3.jpg","images/4.jpg","images/5.jpg"];
+    var imglen=imgarr.length;
+    var ul=document.getElementById("box");
+    var box=document.getElementById("box1");
+    var initW=Math.floor(box.offsetWidth/imglen);
+    for(var i=0;i<imglen;i++){
+        var newli=document.createElement("li");
+        var newimg=document.createElement("img");
+        newimg.src=imgarr[i];
+        newli.style.width=initW+"px";
+        newli.appendChild(newimg);
+        ul.appendChild(newli);
+    }
+    var lis=ul.children;
+    var liWidth=(box.offsetWidth-1226)/(imglen-1);
+    liWidth=Math.floor(liWidth);
+    for(var i=0;i<imglen;i++){
+        lis[i].addEventListener("mouseover",function () {
+           for(var j=0;j<imglen;j++){
+               animate(lis[j],{width:liWidth},null);
+           }
+            animate(this,{width:1226},null);
+        },false);
+        lis[i].addEventListener("mouseout",function () {
+            for(var j=0;j<imglen;j++){
+                animate(lis[j],{width:initW},null);
+            }
+        },false);
+    }
+//    var lis=box.children;
+////    var imgw=lis[0].children[0].offsetWidth;
+//    var lwidth= (box1.offsetWidth-1226)/(imglen-1);
+//    lwidth=Math.floor(lwidth);
+//    for(var i=0;i<imglen;i++){
+//        lis[i].onmouseover=function () {
+//            for(var j=0;j<imglen;j++){
+//                slowmove(lis[j],{width:lwidth})
+//            }
+//            slowmove(this,{width:1226})
+//        }
+//        lis[i].onmouseout=function () {
+//            for(var i=0;i<imglen;i++){
+//                slowmove(lis[i],{width:initW})
+//            }
+//        }
+//    }
+    function slowmove(obj,json,fn) {
+        clearInterval(obj.timer);
+        obj.timer=setInterval(function () {
+            var flag=true;
+            for(var attr in json){
+                var inital=parseInt(getCssStyle(obj,attr));
+                //attention,what we got is not only a number,we should use parseInt()函数去取得其数字的部分
+                var target=json[attr];
+                var step=(target-inital)/10;
+                step=step>0?Math.ceil(step):Math.floor(step);
+                if("opacity"==attr){
+                    if(attr in obj.style){
+                        obj.style.opacity=target;
+                    }else{
+                        obj.style.filter="alpha(opacity="+target*100+")";
+                    }
+                }else if(attr=="zIndex"){
+                    obj.style.zIndex=json[zIndex];
+                }
+                else{
+                    obj.style[attr]=inital+step+"px";
+                }
+
+
+                if(target!=inital){
+                    flag=false;
+                }
+            }
+            if(flag){
+                clearInterval(obj.timer);
+                if(fn){
+                    fn()
+                }
+            }
+        },30)
+    }
+//    function getStyle(obj,attr) {
+//        if(obj.currentStyle){
+//            return obj.currentStyle[attr];
+//        }else{
+//            return window.getComputedStyle(obj,null)[attr];
+//        }
+//    }
+    function getCssStyle(obj,attr) {
+        if(obj.currentStyle){
+            return obj.currentStyle[attr];
+        }else{
+            return window.getComputedStyle(obj,null)[attr];
+        }
+    }
+    function animate(obj,json,fn) {
+        clearInterval(obj.timer);
+
+        obj.timer=setInterval(function () {
+            var flag=true;
+            for(var attr in json){
+                var initial=parseInt(getCssStyle(obj,attr));
+                var target=json[attr];
+                var step=(target-initial)/10;
+                step=step>0?Math.ceil(step):Math.floor(step);
+                if(attr=="opacity"){
+                    if(attr in obj.style){
+                        obj.style.opacity=target;
+                    }else{
+                        obj.style.filter="alpha(opacity="+target*100+")";
+                    }
+                }else if(attr=="zIndex"){
+                    obj.style.zIndex=json[zIndex];
+                }else{
+//                    obj.style[attr]=initial+step+"px";
+                    obj.style[attr]=initial+step+"px";
+                }
+                if(target!=initial){
+                    flag=false;
+                }
+            }
+           if(flag){
+               clearInterval(obj.timer);
+               if(fn){
+                   fn();
+               }
+           }
+        },30);
+    }
+</script>

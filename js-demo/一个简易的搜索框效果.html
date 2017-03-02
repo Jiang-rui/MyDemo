@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .search input,
+        .search button{
+            outline-style: none;
+            border:0;
+            margin:0;
+        }
+        .search{
+            width:258px;
+            height: 40px;
+            margin: 100px auto ;
+        }
+        .search input{
+            width:206px;
+            height: 40px;
+            background: url("images/left.jpg") no-repeat;
+            float: left;
+
+            padding-left: 10px;
+            color: #bbb;
+        }
+        .search button{
+            width:42px;
+            height: 40px;
+            background: url("images/right.jpg") no-repeat;
+            float: left;
+        }
+    </style>
+    <script>
+//        window.onload=function() {
+//            function $(id) {return document.getElementById(id);}
+//
+//            $("btn").onclick = function () {
+//                var input=$("txt").value;
+//                if(input=="ruirui"){
+//                    alert("ruirui love you.");
+//                }
+//            }
+//        }
+        window.onload=function(){
+            function  $(id) {
+                return document.getElementById(id);
+            }
+            var search_box=$("txt");
+            search_box.onfocus=function () {
+                if(search_box.value=="请输入...."){
+                    search_box.value="";
+                    search_box.style.color="#333";
+                }
+            }
+            search_box.onblur=function(){
+                if(search_box.value==""){
+                    search_box.value="请输入....";
+                    search_box.style.color="#bbb";
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+<!--<input type="text" id="txt" value="请输入..."/> <button id="btn">查询</button>-->
+<div class="search">
+    <input type="text" id="txt" value="请输入...."/>
+    <button id="btn"></button>
+</div>
+<div class="al" id="al">
+
+</div>
+</body>
+</html>

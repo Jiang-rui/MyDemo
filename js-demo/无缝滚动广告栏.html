@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        ul,ol{list-style: none;}
+        img{vertical-align: top;}
+        .box{
+            width: 600px;
+            height: 200px;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .box li{
+            float: left;
+        }
+        .box ul{
+            position: absolute;
+            top:0;
+            left:0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="scroll">
+
+    </div>
+</body>
+</html>
+<script>
+    var ul=document.createElement("ul");
+    ul.style.width="600%";
+    var scroll=document.getElementById("scroll");
+    scroll.appendChild(ul);
+    var arrimg=["images/01.jpg","images/02.jpg","images/03.jpg","images/04.jpg"];
+    for(var i=0,imglen=arrimg.length;i<imglen;i++){
+            var li=document.createElement("li");
+            li.style.width="300px";
+            li.style.height="200px";
+            var img=document.createElement("img");
+            img.setAttribute("src",arrimg[i]);
+            li.appendChild(img);
+            ul.appendChild(li);
+    }
+    for(var i=0;i<2;i++){
+        var li=document.createElement("li");
+        li.style.width="300px";
+        li.style.height="200px";
+        var img=document.createElement("img");
+        img.setAttribute("src",arrimg[i]);
+        li.appendChild(img);
+        ul.appendChild(li);
+    }
+    var num=0;
+    var timer=null;
+    timer=setInterval(play,30);
+    function play() {
+        num--;
+        num<=-1200?num=0:num;
+        ul.style.left=num+"px";
+    }
+    scroll.onmouseover=function () {
+        clearInterval(timer);
+    }
+    scroll.onmouseout=function () {
+        timer=setInterval(play,30);
+    }
+</script>

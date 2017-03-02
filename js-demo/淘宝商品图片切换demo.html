@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .mouse{
+            margin: 100px auto;
+            height: 106px;
+            width: 418px;
+            padding-top: 418px;
+            background: url("images/mouse01.jpg") center top no-repeat;
+            background-size: 418px 418px;
+            overflow: hidden;
+        }
+        .icon{
+            width: 418px;
+            height: 106px;
+        }
+        .icon ul{
+            list-style: none;
+            overflow: hidden;
+            border:1px solid #F3F3F3;
+
+        }
+        .icon li{
+            width: 60px;
+            height: 60px;
+            float: left;
+            margin-left: 16px;
+        }
+
+    </style>
+    <script>
+        window.onload=function () {
+            var back_locate=$("mouse_big");
+            var li01=$("pic_container1");
+            var li02=$("pic_container2");
+            var li03=$("pic_container3");
+            var li04=$("pic_container4");
+            var li05=$("pic_container5");
+            function  $(id) {
+                return document.getElementById(id);
+            }
+            function pic_changer(obj1,obj2,obj3) {
+                obj3.onmouseover=function(){
+                    obj1.style.backgroundImage=obj2;
+                    obj3.style.border="2px solid #000";
+                }
+                obj3.onmouseout=function(){
+                    obj3.style.border="2px solid #fff";
+                }
+            }
+            pic_changer(back_locate,"url(images/mouse01.jpg)",li01);
+            pic_changer(back_locate,"url(images/mouse02.jpg)",li02);
+            pic_changer(back_locate,"url(images/mouse03.jpg)",li03);
+            pic_changer(back_locate,"url(images/mouse04.jpg)",li04);
+            pic_changer(back_locate,"url(images/mouse05.jpg)",li05);
+        }
+        // var a=10;
+        // var b=20;
+        // var c=30;
+        // ++a;
+        // a++;
+        // var e=++a+(++b)+(c++)+a++;
+        // alert(e);
+    </script>
+</head>
+<body>
+<div class="mouse" id="mouse_big">
+    <div class="icon">
+        <ul>
+            <li  id="pic_container1" >
+                <img src="images/mouse1.jpg" >
+            </li>
+            <li id="pic_container2" >
+                <img src="images/mouse2.jpg" >
+            </li>
+            <li id="pic_container3"  >
+                <img src="images/mouse3.jpg">
+            </li>
+            <li id="pic_container4" >
+                <img src="images/mouse4.jpg"  >
+            </li>
+            <li  id="pic_container5"  >
+                <img src="images/mouse5.jpg">
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
