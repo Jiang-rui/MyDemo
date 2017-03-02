@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 1330px;
+			margin: 50px auto;
+			border-radius: 10px;
+		}
+		.list{
+			width: 300px;
+			height:200px;
+			float:left;
+			margin:20px;
+			overflow: hidden;
+			position: relative;
+		}
+		.list img{
+			border-radius: 10px;
+		}
+		.list div{
+			position: absolute;
+			left: 0;
+			top:0;
+			width: 300px;
+			height:200px;
+			overflow: hidden;
+			border-radius: 10px;
+			transform:rotate(-130deg);
+			transform-origin: top left;
+			transition:transform 0.5s;
+		}
+		.current div{
+			transform:rotate(0deg);
+		}
+		.list div.top{
+			transform-origin:top left;
+		}
+		.list div.right{
+			transform-origin:top right;
+		}
+		.list div.left{
+			transform-origin:bottom left;
+		}
+		.list div.bottom{
+			transform-origin:bottom right;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="list">
+			<img src="images/00.png" >
+			<div>
+				<img src="images/1.jpg">
+			</div>
+		</div>
+		<div class="list">
+			<img src="images/00.png" >
+			<div>
+				<img src="images/2.jpg">
+			</div>
+		</div>
+		<div class="list">
+			<img src="images/00.png" >
+			<div>
+				<img src="images/3.jpg">
+			</div>
+		</div>
+		<div class="list">
+			<img src="images/00.png" >
+			<div>
+				<img src="images/4.jpg">
+			</div>
+		</div>
+		<div class="list">
+			<img src="images/00.png" >
+			<div>
+				<img src="images/5.jpg">
+			</div>
+		</div>
+		<div class="list">
+			<img src="images/00.png" >
+			<div>
+				<img src="images/6.jpg">
+			</div>
+		</div>
+		<div class="list">
+			<img src="images/00.png" >
+			<div>
+				<img src="images/7.jpg">
+			</div>
+		</div>
+		<div class="list">
+			<img src="images/00.png" >
+			<div>
+				<img src="images/8.jpg">
+			</div>
+		</div>
+		<div class="list">
+			<img src="images/00.png" >
+			<div>
+				<img src="images/9.jpg">
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$(".list").on("mouseenter mouseleave",function(e){
+					 var that=$(this); 
+					 var w = $(this).width(); // 得到盒子宽度
+                     var h = $(this).height();// 得到盒子高度
+                     var x = (e.pageX - this.offsetLeft - (w / 2)) * (w > h ? (h / w) : 1);
+                     // 获取x值
+                     var y = (e.pageY - this.offsetTop - (h / 2)) * (h > w ? (w / h) : 1);
+                     // 获取y值
+                     var direction = Math.round((((Math.atan2(y, x) * (180 / Math.PI)) + 180) / 90) + 3) % 4; //
+
+					if(e.type=="mouseenter"){
+							switch (direction) {
+								case 0:
+								movein('top');
+								break;
+								case 1:
+								movein('right');
+								break;
+								case 2:
+								movein("bottom")
+								break;
+								case 3:
+								movein("left");
+								break;
+							}
+					}else{
+							switch (direction) {
+								case 0:
+								moveout('top');
+								break;
+								case 1:
+								moveout('right');
+								break;
+								case 2:
+								moveout("bottom")
+								break;
+								case 3:
+								moveout("left");
+								break;
+							}
+					}
+					function movein(str){
+							that.children(1).removeClass().addClass(str);
+							that.addClass('current');
+					}
+					function moveout(str){
+						that.removeClass('current');
+						that.children(1).removeClass().addClass(str);
+					}
+				});
+		});
+	</script>
+</body>
+</html>

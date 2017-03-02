@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding:0;}
+		ul,ol{list-style: none;}
+		  body {
+            perspective: 700px;
+        }
+		ul{
+			width:340px;
+			height: 200px;
+			position: relative;
+			margin: 300px auto;
+			transform-style:preserve-3d;
+			transition:transform 2s;
+			transform: scaleX(2.5) scaleY(1.5) rotateX(0deg);
+		}
+		li{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			line-height: 200px;
+			font-size: 40px;
+			text-align: center;
+			-webkit-background-size: cover;
+		}
+		li:nth-child(1){
+			background:url(images/1.jpg) no-repeat; 
+			transform:rotateX(0deg)  translateZ(100px);
+			background-size: cover
+		}
+		li:nth-child(2){
+			background:url(images/2.jpg) no-repeat; 
+			transform:rotateX(-90deg) translateZ(100px);
+			background-size: cover
+		}
+		li:nth-child(3){
+			background:url(images/3.jpg) no-repeat; 
+			transform:rotateX(-180deg) translateZ(100px);
+			background-size: cover
+		}
+		li:nth-child(4){
+			background:url(images/4.jpg) no-repeat; 
+			transform:rotateX(-270deg) translateZ(100px);
+			background-size: cover
+		}
+		span{
+			width: 40px;
+			height: 40px;
+			border-top:3px solid #000;
+			border-right: 3px solid #000;
+			position: absolute;
+			top: 50%;
+			margin-top: -20px;
+			z-index:3;
+			left: 50%;
+
+		}
+		.prev{
+			margin-left:-200px;
+			transform:rotateZ(-135deg);
+		}
+		.next{
+			transform:rotateZ(45deg);
+			margin-left: 150px;
+		}
+		
+	</style>
+
+</head>
+<body>
+	<ul>
+		<li>第1面</li>
+		<li>第2面</li>
+		<li>第3面</li>
+		<li>第4面</li>
+
+	</ul>
+	<span class="prev"></span><span class="next"></span>
+</body>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+	$(function () {
+		var num=0;
+		$(".prev").on("click",function(){
+			num--;
+			$("ul").css("transform","scaleX(2.5) scaleY(1.5) rotateX("+num*90+"deg)")
+		});
+		$(".next").on("click",function(){
+			num++;
+			$("ul").css("transform","scaleX(2.5) scaleY(1.5) rotateX("+num*90+"deg)")
+		});
+	});
+</script>
+</html>
